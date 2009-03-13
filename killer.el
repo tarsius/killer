@@ -1,12 +1,12 @@
 ;;; killer.el --- kill and delete text
 
-;; Copyright (C) 2008 Jonas Bernoulli
+;; Copyright (C) 2008, 2009  Jonas Bernoulli
 
-;; Author: Jonas Bernoulli <jonas@bernoulli.cc>
+;; Author: Jonas Bernoulli <jonas@bernoul.li>
 ;; Created: 20080830
-;; Updated: 20080830
+;; Updated: 20090313
 ;; Version: 0.1
-;; Homepage: http://artavatar.net
+;; Homepage: http://github.com/tarsius/killer
 ;; Keywords: convenience
 
 ;; This file is not part of GNU Emacs.
@@ -118,10 +118,11 @@ to the end of the previous word.  With argument, always move by that many words.
 		 orig-pos)))
 
 (defun backward-kill-word-or-wspace (&optional arg)
-  "Kill characters backward until encountering the end of a word, unless point is surrounded by whitespace.
+  "Kill characters backward until encountering the end of a word.
 If point is surrounded by whitespace kill to the end of the preciding word.
 With argument, always kill that many words."
   (interactive "p")
+  (setq this-command 'kill-region)
   (if arg
       (backward-kill-word arg)
     (if (looking-at "[ \t]")
@@ -129,10 +130,11 @@ With argument, always kill that many words."
       (backward-kill-word 1))))
 
 (defun kill-word-or-wspace (&optional arg)
-  "Kill characters forward until encountering the end of a word, unless point is surrounded by whitespace.
+  "Kill characters forward until encountering the end of a word.
 If point is surrounded by whitespace kill to the beginning of the following word.
 With argument, always kill that many words."
   (interactive "p")
+  (setq this-command 'kill-region)
   (if arg
       (kill-word arg)
     (if (looking-at "[ \t]")
