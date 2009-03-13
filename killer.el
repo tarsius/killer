@@ -141,6 +141,15 @@ With argument, always kill that many words."
 	(forward-kill-whitespace)
       (kill-word 1))))
 
+(defun backward-kill-line (&optional arg)
+  "Kills the text before point on the current line.
+
+With prefix argument, kill backward n lines from point.
+With negative prefix arguments kill n lines forward.
+Don't do this; use `kill-line' instead."
+  (interactive "P")
+  (kill-line (- (or arg 0))))
+
 (provide 'killer)
 ;;; killer.el ends here
 
