@@ -1,11 +1,11 @@
 ;;; killer.el --- kill and delete text
 
-;; Copyright (C) 2008, 2009  Jonas Bernoulli
+;; Copyright (C) 2008, 2009, 2010  Jonas Bernoulli
 
 ;; Author: Jonas Bernoulli <jonas@bernoul.li>
 ;; Created: 20080830
-;; Updated: 20090313
-;; Version: 0.1
+;; Updated: 20100307
+;; Version: 0.2
 ;; Homepage: http://github.com/tarsius/killer
 ;; Keywords: convenience
 
