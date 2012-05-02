@@ -1,11 +1,10 @@
 ;;; killer.el --- kill and delete text
 
-;; Copyright (C) 2008, 2009, 2010  Jonas Bernoulli
+;; Copyright (C) 2008-2012  Jonas Bernoulli
 
 ;; Author: Jonas Bernoulli <jonas@bernoul.li>
 ;; Created: 20080830
-;; Updated: 20100307
-;; Version: 0.2
+;; Version: 0.2.1
 ;; Homepage: http://github.com/tarsius/killer
 ;; Keywords: convenience
 
@@ -26,20 +25,23 @@
 
 ;;; Commentary:
 
-;;  Defines additional commands to kill and delete text.
+;; Defines additional commands to kill and delete text.
 
 ;;; Code:
 
+;;;###autoload
 (defun kill-char (arg)
   "Kill the following n characters."
   (interactive "p")
   (kill-region (point) (progn (forward-char arg) (point))))
 
+;;;###autoload
 (defun backward-kill-char (arg)
   "Kill the previous n characters."
   (interactive "p")
   (kill-char (- arg)))
 
+;;;###autoload
 (defun kill-or-delete-char (arg)
   "Kill or delete following n character."
   (interactive "p")
@@ -47,6 +49,7 @@
       (kill-char arg)
     (delete-char arg)))
 
+;;;###autoload
 (defun backward-kill-or-delete-char (arg)
   "Kill or delete previous n character."
   (interactive "p")
@@ -54,6 +57,7 @@
       (backward-kill-char arg)
     (backward-delete-char arg)))
 
+;;;###autoload
 (defun backward-kill-or-delete-char-untabify (arg &optional killp)
   "Kill or delete previous n character."
   (interactive "p")
@@ -61,6 +65,7 @@
       (backward-delete-char-untabify arg t)
     (backward-delete-char-untabify arg)))
 
+;;;###autoload
 (defun backward-word-or-wspace (&optional arg)
   "Move backward over word or whitespace.
 Move backward until end of word or if point is surrounded by whitespace move
@@ -73,6 +78,7 @@ to the end of the next word.  With argument, always move by that many words."
 	(skip-chars-backward "[:space:]")
       (backward-word))))
 
+;;;###autoload
 (defun forward-word-or-wspace (&optional arg)
   "Move forward over word or whitespace.
 Move forward until end of word or if point is surrounded by whitespace move
@@ -85,6 +91,7 @@ to the end of the previous word.  With argument, always move by that many words.
 	(skip-chars-forward "[:space:]")
       (forward-word))))
 
+;;;###autoload
 (defun backward-delete-whitespace ()
   "Delete all spaces and tabs before point."
   (interactive)
@@ -93,6 +100,7 @@ to the end of the previous word.  With argument, always move by that many words.
 		   (progn (skip-chars-backward " \t")
 			  (constrain-to-field nil orig-pos)))))
 
+;;;###autoload
 (defun forward-delete-whitespace ()
   "Delete all spaces and tabs after point."
   (interactive)
@@ -101,6 +109,7 @@ to the end of the previous word.  With argument, always move by that many words.
 			  (constrain-to-field nil orig-pos))
 		   orig-pos)))
 
+;;;###autoload
 (defun backward-kill-whitespace ()
   "Kill all spaces and tabs before point."
   (interactive)
@@ -109,6 +118,7 @@ to the end of the previous word.  With argument, always move by that many words.
 		 (progn (skip-chars-backward " \t")
 			(constrain-to-field nil orig-pos)))))
 
+;;;###autoload
 (defun forward-kill-whitespace ()
   "Kill all spaces and tabs after point."
   (interactive)
@@ -117,6 +127,7 @@ to the end of the previous word.  With argument, always move by that many words.
 			(constrain-to-field nil orig-pos))
 		 orig-pos)))
 
+;;;###autoload
 (defun backward-kill-word-or-wspace (&optional arg)
   "Kill characters backward until encountering the end of a word.
 If point is surrounded by whitespace kill to the end of the preciding word.
@@ -129,6 +140,7 @@ With argument, always kill that many words."
 	(backward-kill-whitespace)
       (backward-kill-word 1))))
 
+;;;###autoload
 (defun kill-word-or-wspace (&optional arg)
   "Kill characters forward until encountering the end of a word.
 If point is surrounded by whitespace kill to the beginning of the following word.
@@ -141,6 +153,7 @@ With argument, always kill that many words."
 	(forward-kill-whitespace)
       (kill-word 1))))
 
+;;;###autoload
 (defun backward-kill-line (&optional arg)
   "Kills the text before point on the current line.
 
