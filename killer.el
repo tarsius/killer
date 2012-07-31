@@ -68,8 +68,9 @@
 ;;;###autoload
 (defun backward-word-or-wspace (&optional arg)
   "Move backward over word or whitespace.
-Move backward until end of word or if point is surrounded by whitespace move
-to the end of the next word.  With argument, always move by that many words."
+Move backward until end of word or if point is surrounded by
+whitespace move to the end of the next word.  With argument,
+always move by that many words."
   (interactive "P")
   (if arg
       (backward-word arg)
@@ -81,8 +82,9 @@ to the end of the next word.  With argument, always move by that many words."
 ;;;###autoload
 (defun forward-word-or-wspace (&optional arg)
   "Move forward over word or whitespace.
-Move forward until end of word or if point is surrounded by whitespace move
-to the end of the previous word.  With argument, always move by that many words."
+Move forward until end of word or if point is surrounded by
+whitespace move to the end of the previous word.  With argument,
+always move by that many words."
   (interactive "P")
   (if arg
       (forward-word arg)
@@ -130,8 +132,8 @@ to the end of the previous word.  With argument, always move by that many words.
 ;;;###autoload
 (defun backward-kill-word-or-wspace (&optional arg)
   "Kill characters backward until encountering the end of a word.
-If point is surrounded by whitespace kill to the end of the preciding word.
-With argument, always kill that many words."
+If point is surrounded by whitespace kill to the end of the
+preciding word.  With argument, always kill that many words."
   (interactive "p")
   (setq this-command 'kill-region)
   (if arg
@@ -143,8 +145,8 @@ With argument, always kill that many words."
 ;;;###autoload
 (defun kill-word-or-wspace (&optional arg)
   "Kill characters forward until encountering the end of a word.
-If point is surrounded by whitespace kill to the beginning of the following word.
-With argument, always kill that many words."
+If point is surrounded by whitespace kill to the beginning of the
+following word.  With argument, always kill that many words."
   (interactive "p")
   (setq this-command 'kill-region)
   (if arg
@@ -156,10 +158,9 @@ With argument, always kill that many words."
 ;;;###autoload
 (defun backward-kill-line (&optional arg)
   "Kills the text before point on the current line.
-
-With prefix argument, kill backward n lines from point.
-With negative prefix arguments kill n lines forward.
-Don't do this; use `kill-line' instead."
+With prefix argument, kill backward n lines from point.  With
+negative prefix arguments kill n lines forward.  Don't do this;
+use `kill-line' instead."
   (interactive "P")
   (kill-line (- (or arg 0))))
 
