@@ -4,7 +4,7 @@
 
 ;; Author: Jonas Bernoulli <jonas@bernoul.li>
 ;; Created: 20080830
-;; Version: 0.2.1
+;; Version: 0.2.2
 ;; Homepage: http://github.com/tarsius/killer
 ;; Keywords: convenience
 
