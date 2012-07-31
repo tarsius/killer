@@ -74,8 +74,8 @@ to the end of the next word.  With argument, always move by that many words."
   (if arg
       (backward-word arg)
     (if (and (looking-at "[ \t]")
-	     (looking-back "[ \t]"))
-	(skip-chars-backward "[:space:]")
+             (looking-back "[ \t]"))
+        (skip-chars-backward "[:space:]")
       (backward-word))))
 
 ;;;###autoload
@@ -87,8 +87,8 @@ to the end of the previous word.  With argument, always move by that many words.
   (if arg
       (forward-word arg)
     (if (and (looking-at "[ \t]")
-	     (looking-back "[ \t]"))
-	(skip-chars-forward "[:space:]")
+             (looking-back "[ \t]"))
+        (skip-chars-forward "[:space:]")
       (forward-word))))
 
 ;;;###autoload
@@ -97,8 +97,8 @@ to the end of the previous word.  With argument, always move by that many words.
   (interactive)
   (let ((orig-pos (point)))
     (delete-region orig-pos
-		   (progn (skip-chars-backward " \t")
-			  (constrain-to-field nil orig-pos)))))
+                   (progn (skip-chars-backward " \t")
+                          (constrain-to-field nil orig-pos)))))
 
 ;;;###autoload
 (defun forward-delete-whitespace ()
@@ -106,8 +106,8 @@ to the end of the previous word.  With argument, always move by that many words.
   (interactive)
   (let ((orig-pos (point)))
     (delete-region (progn (skip-chars-forward " \t")
-			  (constrain-to-field nil orig-pos))
-		   orig-pos)))
+                          (constrain-to-field nil orig-pos))
+                   orig-pos)))
 
 ;;;###autoload
 (defun backward-kill-whitespace ()
@@ -115,8 +115,8 @@ to the end of the previous word.  With argument, always move by that many words.
   (interactive)
   (let ((orig-pos (point)))
     (kill-region orig-pos
-		 (progn (skip-chars-backward " \t")
-			(constrain-to-field nil orig-pos)))))
+                 (progn (skip-chars-backward " \t")
+                        (constrain-to-field nil orig-pos)))))
 
 ;;;###autoload
 (defun forward-kill-whitespace ()
@@ -124,8 +124,8 @@ to the end of the previous word.  With argument, always move by that many words.
   (interactive)
   (let ((orig-pos (point)))
     (kill-region (progn (skip-chars-forward " \t")
-			(constrain-to-field nil orig-pos))
-		 orig-pos)))
+                        (constrain-to-field nil orig-pos))
+                 orig-pos)))
 
 ;;;###autoload
 (defun backward-kill-word-or-wspace (&optional arg)
@@ -137,7 +137,7 @@ With argument, always kill that many words."
   (if arg
       (backward-kill-word arg)
     (if (looking-at "[ \t]")
-	(backward-kill-whitespace)
+        (backward-kill-whitespace)
       (backward-kill-word 1))))
 
 ;;;###autoload
@@ -150,7 +150,7 @@ With argument, always kill that many words."
   (if arg
       (kill-word arg)
     (if (looking-at "[ \t]")
-	(forward-kill-whitespace)
+        (forward-kill-whitespace)
       (kill-word 1))))
 
 ;;;###autoload
@@ -164,5 +164,7 @@ Don't do this; use `kill-line' instead."
   (kill-line (- (or arg 0))))
 
 (provide 'killer)
+;; Local Variables:
+;; indent-tabs-mode: nil
+;; End:
 ;;; killer.el ends here
-
