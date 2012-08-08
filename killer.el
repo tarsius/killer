@@ -4,7 +4,7 @@
 
 ;; Author: Jonas Bernoulli <jonas@bernoul.li>
 ;; Created: 20080830
-;; Version: 0.2.2
+;; Version: 0.2.3
 ;; Homepage: http://github.com/tarsius/killer
 ;; Keywords: convenience
 
@@ -53,7 +53,7 @@
 
 ;;;###autoload
 (defun kill-or-delete-char (arg)
-  "Kill or delete following n character."
+  "Kill or delete following n characters."
   (interactive "p")
   (if (eq last-command 'kill-region)
       (kill-char arg)
@@ -61,7 +61,7 @@
 
 ;;;###autoload
 (defun backward-kill-or-delete-char (arg)
-  "Kill or delete previous n character."
+  "Kill or delete previous n characters."
   (interactive "p")
   (if (eq last-command 'kill-region)
       (backward-kill-char arg)
@@ -69,7 +69,7 @@
 
 ;;;###autoload
 (defun backward-kill-or-delete-char-untabify (arg &optional killp)
-  "Kill or delete previous n character."
+  "Kill or delete previous n characters."
   (interactive "p")
   (if (eq last-command 'kill-region)
       (backward-delete-char-untabify arg t)
