@@ -3,8 +3,6 @@
 ;; Copyright (C) 2008-2012, 2019  Jonas Bernoulli
 
 ;; Author: Jonas Bernoulli <jonas@bernoul.li>
-;; Created: 20080830
-;; Version: 0.2.3
 ;; Homepage: http://github.com/tarsius/killer
 ;; Keywords: convenience
 
@@ -31,11 +29,7 @@
 ;; deletes text the variant defined here instead kills the text if
 ;; (and only if) the previous command was a kill command.
 
-;; Note that this package is not namespace-safe and that the author
-;; does not use it any longer.  However because the function
-;; definitions in this library are all quite simple you might still
-;; want to give it a try if you often wish some command which deleted
-;; some text had instead killed it.
+;; Note that this package is not namespace-safe.
 
 ;;; Code:
 
