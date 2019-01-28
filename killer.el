@@ -1,6 +1,6 @@
 ;;; killer.el --- kill and delete text
 
-;; Copyright (C) 2008-2012  Jonas Bernoulli
+;; Copyright (C) 2008-2012, 2019  Jonas Bernoulli
 
 ;; Author: Jonas Bernoulli <jonas@bernoul.li>
 ;; Created: 20080830
@@ -84,8 +84,8 @@ always move by that many words."
   (interactive "P")
   (if arg
       (backward-word arg)
-    (if (and (looking-at "[ \t]")
-             (looking-back "[ \t]"))
+    (if (and (memq (char-before) '(?\s ?\t))
+             (memq (char-after)  '(?\s ?\t)))
         (skip-chars-backward "[:space:]")
       (backward-word))))
 
@@ -98,8 +98,8 @@ always move by that many words."
   (interactive "P")
   (if arg
       (forward-word arg)
-    (if (and (looking-at "[ \t]")
-             (looking-back "[ \t]"))
+    (if (and (memq (char-before) '(?\s ?\t))
+             (memq (char-after)  '(?\s ?\t)))
         (skip-chars-forward "[:space:]")
       (forward-word))))
 
